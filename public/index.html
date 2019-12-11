@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Team Creater</title>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    
+    <body>
+        <h1>Create Your Dream Team!</h1>
+        <div id="app">
+            <form v-on:submit.prevent="changeName">
+                <input type="text" placeholder="team name" v-model="teamName"/>
+                <input type="submit" value="Change Team Name"/>
+                <button v-on:click="findTeam">Find Team</button>
+            </form>
+            
+            <h2>Team Name: {{team.teamName}}</h2>
+            
+            <form v-on:submit.prevent="addPlayer">
+                <input type="text" placeholder="player name" v-model="playerName"/><br>
+                Position<input type="radio" name="position" value="PG" v-model="playerPosition" checked/> PG
+                <input type="radio" name="position" value="SG" v-model="playerPosition" /> SG
+                <input type="radio" name="position" value="SF" v-model="playerPosition" /> SF
+                <input type="radio" name="position" value="PF" v-model="playerPosition" /> PF
+                <input type="radio" name="position" value="C" v-model="playerPosition" /> C <br>
+                <input type="text" placeholder="player rating: 1-99" v-model="playerRating"/>
+                <input type="submit" value="Create Player"/>
+            </form>
+            
+            <h3>Players:</h3>
+           
+                <h4>&nbsp;Position &emsp; Name &emsp;&emsp;Rating</h4>
+                <div v-for="player in team.players">
+                    <span class="glyphicon glyphicon-remove" v-on:click="deletePlayer(player)"></span>
+                    {{player.position}} &emsp;&emsp;     {{player.name}} &emsp;&emsp;    {{player.rating}}
+                </div> 
+            
+            </div>
+            
+        </div>
+        
+        
+        <div class="footer">
+            <p><a href="https://github.com/drowley4/260Lab5">Git Hub Link</a></p>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js" integrity="sha256-mpnrJ5DpEZZkwkE1ZgkEQQJW/46CSEh/STrZKOB/qoM=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.2/dist/vue.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>
