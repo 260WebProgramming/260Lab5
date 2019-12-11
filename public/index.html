@@ -7,11 +7,11 @@
     </head>
     
     <body>
-        <h1>Create Your Dream Team!</h1>
-        <div id="app">
+        <div id="app" class="submission">
+            <h1>Create Your Dream Team!</h1>
             <form v-on:submit.prevent="changeName">
                 <input type="text" placeholder="team name" v-model="teamName"/>
-                <input type="submit" value="Change Team Name"/>
+                <input class="submit" type="submit" value="Change Team Name"/>
                 <button v-on:click="findTeam">Find Team</button>
             </form>
             
@@ -25,7 +25,7 @@
                 <input type="radio" name="position" value="PF" v-model="playerPosition" /> PF
                 <input type="radio" name="position" value="C" v-model="playerPosition" /> C <br>
                 <input type="text" placeholder="player rating: 1-99" v-model="playerRating"/>
-                <input type="submit" value="Create Player"/>
+                <input class="submit" type="submit" value="Create Player"/>
             </form>
             
             <h3>Players:</h3>
